@@ -15,7 +15,7 @@ db.once("open",()=>{
     console.log("connected to mongodb successfully")
     //function to insert data in db
     init();
-
+    //fuction to perform CRUD operation
     dbQueries();
 })
 
@@ -28,12 +28,11 @@ async function init(){
         subjects : ["maths","physics"]
     }
     const std_obj = await studentModel.create(student)
-
     // console.log(std_obj)
 }
 
 async function dbQueries(){
-    //find by id 
+    //if we want to read document by id 
     try{
         const students = await studentModel.findById("65e99e02d121527ff8a56c6c");
         // console.log(students)
@@ -50,7 +49,7 @@ async function dbQueries(){
     catch(err){
         console.log(err)
     }
-    //fetch using multiple conditions
+    //find using multiple conditions
     try{
         const std = await studentModel.where("age").gt("10").where("name").equals("vishwa").limit(2);
         console.log(std)

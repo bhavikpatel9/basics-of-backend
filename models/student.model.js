@@ -9,4 +9,5 @@ const studentSchema = mongoose.Schema({
 })
 
 //go ahead and create corresponding collection on db
+//"Student" is collection name
 module.exports = mongoose.model("Student",studentSchema)
